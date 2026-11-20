@@ -1,0 +1,179 @@
+# CS answer list — the hidden words (ADR-0002: always five letters, curated by hand).
+# One word per line; anything after '#' is a comment. Brand and proper nouns
+# (LINUX, REACT, JAVA, SWIFT, COBOL) are excluded unless Liyan rules otherwise.
+# Every word here is automatically an allowed guess too, which is how jargon like
+# MUTEX or ASYNC gets accepted even though no English dictionary has it.
+
+# data structures
+ARRAY
+STACK
+QUEUE
+DEQUE
+TUPLE
+GRAPH
+CHAIN
+TREAP     # tree + heap
+SPLAY     # splay tree
+RADIX     # radix sort / radix tree
+BLOOM     # Bloom filter
+TABLE
+INDEX
+CHILD
+UNION
+SLICE
+RANGE
+FIELD
+VALUE
+ENTRY
+LABEL
+
+# memory, caching, storage
+CACHE
+EVICT
+FLUSH
+DIRTY
+STALE
+ALLOC
+INODE
+SHARD
+BLOCK
+CHUNK
+FRAME
+STORE
+WRITE
+MOUNT
+DRIVE
+BYTES
+OCTET
+FENCE     # memory fence
+
+# concurrency & systems
+MUTEX
+LATCH
+SPAWN
+FIBER
+YIELD
+SLEEP
+ASYNC
+AWAIT
+TIMER
+CLOCK
+CYCLE
+QUOTA
+LIMIT
+PANIC
+FAULT
+CRASH
+ABORT
+RESET
+RETRY
+LEASE
+PAXOS     # consensus algorithm
+STDIN
+SHELL
+CHMOD
+CHOWN
+MKDIR
+TOUCH
+ALIAS
+
+# languages & types
+CLASS
+SUPER
+TRAIT
+MIXIN
+MACRO
+MONAD
+THUNK
+CURRY
+HOIST
+APPLY
+SCOPE
+CONST
+FLOAT
+SHORT
+TYPED
+INFER
+ARITY
+UNARY
+INFIX
+OCTAL
+DIGIT
+ASCII
+EMPTY
+FALSE
+LOCAL
+GUARD
+WHILE
+BREAK
+THROW
+CATCH
+RAISE
+MATCH
+EVENT
+STATE
+PARSE
+TOKEN
+REGEX
+VOCAB
+PRINT
+INPUT
+SPLIT
+SHIFT
+CARRY
+FLOOR
+ADDER
+LOGIC
+PRIME
+
+# databases
+QUERY
+WHERE
+GROUP
+ORDER
+COUNT
+
+# networking & web
+PROXY
+ROUTE
+FETCH
+SERVE
+LOGIN
+ADMIN
+EMAIL
+MODEM
+CLOUD
+CODEC
+NONCE
+CRYPT
+
+# version control & tooling
+MERGE
+STASH
+CLONE
+PATCH
+BLAME
+BUILD
+DEBUG
+TRACE
+PROBE
+WATCH
+SUITE
+SETUP
+ALERT
+BATCH
+SWEEP     # mark-and-sweep
+
+# graphics & machine learning
+PIXEL
+VOXEL
+DENSE
+EPOCH
+LAYER
+MODEL
+TRAIN
+LOGIT
+EMBED
+AGENT
+QUBIT
+VIRUS

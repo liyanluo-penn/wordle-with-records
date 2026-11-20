@@ -4,6 +4,10 @@
 # Temporary files
 ~*
 
+# Node / Vite (ADR-0001)
+node_modules/
+dist/
+
 # Python temporary files
 __pycache__/
 *.py[cod]
