@@ -249,7 +249,7 @@ If the script was successfully used, append as comments how, and what the outcom
 A browser word-guessing game: the player guesses a hidden word and each letter gets colored feedback. The answers are computer-science terms (ARRAY, STACK, QUEUE, CACHE, TOKEN…). It is built with Vue single-file components using scoped CSS, and hosted free on GitHub Pages. This repo is both the product and its decision record: the implementation lives here, next to the ADRs that justify it.
 
 ### Current focus:
-Milestone 1: the game engine plus unlimited mode, deployed to GitHub Pages. Daily mode comes next (ADR-0003).
+Milestone 1 (engine + unlimited mode) is live at https://liyanluo-penn.github.io/wordle-with-records/. Next: milestone 2, daily mode (ADR-0003). Still open: the game's public name (working title "Cache Hit", ADR-0003 follow-ups).
 
 ### Key decisions made:
 - Toolchain: Vite + Vue 3 SFCs + TypeScript + Vitest, deployed by GitHub Actions. See `docs/adr/0001-build-and-deploy-toolchain.md`

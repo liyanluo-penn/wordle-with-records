@@ -10,7 +10,7 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 
 - **Date**: 2026-11-19
 - **Iteration**: 2
-- **Status**: Accepted
+- **Status**: Implemented
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
 **TL;DR**: Build with Vite + Vue 3 single-file components (scoped CSS), in TypeScript, tested with Vitest; a GitHub Actions workflow tests, builds and publishes to GitHub Pages.
@@ -83,9 +83,9 @@ A — Vite + Actions deploy. (Accepted the recommendation. Liyan said in convers
 
 ## Action Items
 
-- [ ] Scaffold the app and the deploy workflow — Owner: Claude
-- [ ] Extend `just gate` with `npm test` and `npm run build` — Owner: Claude
-- [ ] Switch Pages to the "GitHub Actions" source — Owner: Liyan (or Claude via `gh api`, with Liyan's OK)
+- [x] Scaffold the app and the deploy workflow — Owner: Claude (commit 043aaee)
+- [x] Extend `just gate` with `npm test` and `npm run build` — Owner: Claude (commit 043aaee)
+- [x] Switch Pages to the "GitHub Actions" source — done by Claude via `gh api` with Liyan's OK ("上线", 2026-11-19); first deploy green, live at https://liyanluo-penn.github.io/wordle-with-records/
 
 ---
 

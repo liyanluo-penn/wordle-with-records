@@ -10,7 +10,8 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 
 - **Date**: 2026-11-19
 - **Iteration**: 2
-- **Status**: Accepted
+- **Status**: Partially Implemented
+- **Scope Remaining**: daily mode (milestone 2): date → word picker, per-day saved state, mode switch in the UI
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
 **TL;DR**: Support both an unlimited practice mode and a daily puzzle, built in that order on one shared game engine.
@@ -79,7 +80,7 @@ C — Both, unlimited first. (Accepted the recommendation. Liyan said in convers
 
 ## Action Items
 
-- [ ] Build the engine + unlimited mode — Owner: Claude
+- [x] Build the engine + unlimited mode — Owner: Claude (commit 043aaee; live 2026-11-19)
 - [ ] Add daily mode on the same engine — Owner: Claude
 
 ---

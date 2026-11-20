@@ -10,7 +10,7 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 
 - **Date**: 2026-11-19
 - **Iteration**: 2
-- **Status**: Accepted
+- **Status**: Implemented
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
 **TL;DR**: Answers are always 5-letter CS terms, and a guess must be a real English word or any CS answer word. Word length stays one code constant so variable length can come later.
