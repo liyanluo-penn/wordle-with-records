@@ -9,11 +9,11 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 # Play mode
 
 - **Date**: 2026-11-19
-- **Iteration**: 1
-- **Status**: Draft
+- **Iteration**: 2
+- **Status**: Accepted
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
-**TL;DR**: Recommended: support both an unlimited practice mode and a daily puzzle, built in that order on one shared game engine. Pending Liyan's pick.
+**TL;DR**: Support both an unlimited practice mode and a daily puzzle, built in that order on one shared game engine.
 
 ---
 
@@ -44,7 +44,7 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 ## Questions
 
 ### QST-PLAY-MODE: When does a player get a new word?
-- Status: unanswered
+- Status: answered
 - Why asking: This decides how answers are picked, what the browser saves, and whether there's date logic to test. Context: the site is static (GitHub Pages, no server), so any "daily" word must be computed in the browser from the date. The answer pool is likely ~150–250 words (ADR-0002).
 - Need: pick a letter (or override — any shape answers)
 
@@ -58,13 +58,29 @@ Options:
 **C — Both, unlimited first.** *Rationale*: Explicitation item 1 means the second mode costs only an answer picker and a save slot, not a second game. Building unlimited first gives a playable, demo-able game soonest, and lets us test the scoring engine without faking dates. Daily then adds the shared-puzzle appeal, and its date→word function gets its own focused tests. *Confidence*: 0.65. The engineering argument is solid; whether you want the extra mode at all is your call. *If wrong*: if the deadline is tight or you want one mode to polish, this flips to **B**. If "everyone solves the same CS word today" *is* the point of the project, it flips to **A**.
 
 **ANS:** (by Liyan Luo)
-[Fill this in]   <!-- literal placeholder — parser-significant, do not paraphrase -->
+C — Both, unlimited first. (Accepted the recommendation. Liyan said in conversation, 2026-11-19: "按照你的来" — "go with your recommendations"; recorded by Claude Opus 5.5.)
 
 ---
 
 ## Decision
 
-Pending the answer to QST-PLAY-MODE.
+### Chosen: C — Both, unlimited first
+
+**Rationale**: As in the Recommendation. Both modes share one engine (scoring, rows, win/loss); they differ only in the answer picker and what gets saved.
+
+**Trade-offs accepted**: Two modes to explain in the UI. The daily word is computable by anyone who reads the source (static hosting, no server).
+
+### Consequences
+- Milestone 1: unlimited mode (random answer, "New game"), playable and deployed.
+- Milestone 2: daily mode (date → word via a fixed shuffle, the player's local date, per-day saved state).
+- Saved state lives in `localStorage`.
+
+---
+
+## Action Items
+
+- [ ] Build the engine + unlimited mode — Owner: Claude
+- [ ] Add daily mode on the same engine — Owner: Claude
 
 ---
 
@@ -83,6 +99,12 @@ Pending the answer to QST-PLAY-MODE.
 - Contributors: Claude (Opus 5.5)
 - Changes: options laid out, recommendation C
 - Outcome: Draft, awaiting QST-PLAY-MODE
+
+### Iteration 2 (2026-11-19)
+- Trigger: Liyan's answer in conversation: "按照你的来" (go with your recommendations)
+- Contributors: Liyan Luo, Claude (Opus 5.5)
+- Changes: QST-PLAY-MODE answered C; Decision and Action Items filled
+- Outcome: Draft → Accepted
 
 ---
 

@@ -249,10 +249,12 @@ If the script was successfully used, append as comments how, and what the outcom
 A browser word-guessing game: the player guesses a hidden word and each letter gets colored feedback. The answers are computer-science terms (ARRAY, STACK, QUEUE, CACHE, TOKEN…). It is built with Vue single-file components using scoped CSS, and hosted free on GitHub Pages. This repo is both the product and its decision record: the implementation lives here, next to the ADRs that justify it.
 
 ### Current focus:
-Settling the pre-code decisions before any code is written: the build/deploy toolchain (ADR-0001), the word and guess rules (ADR-0002), and the play mode (ADR-0003).
+Milestone 1: the game engine plus unlimited mode, deployed to GitHub Pages. Daily mode comes next (ADR-0003).
 
 ### Key decisions made:
-*(List ADRs here as they land, e.g. `- Auth approach — see docs/adr/0001-*.md`. Empty at birth is healthy.)*
+- Toolchain: Vite + Vue 3 SFCs + TypeScript + Vitest, deployed by GitHub Actions. See `docs/adr/0001-build-and-deploy-toolchain.md`
+- Words: 5-letter CS answers; guesses = English 5-letter words ∪ answers. See `docs/adr/0002-word-list-and-guess-rules.md`
+- Play mode: unlimited first, then daily, on one engine. See `docs/adr/0003-play-mode.md`
 
 ### Open questions:
 ```bash

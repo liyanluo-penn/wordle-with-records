@@ -9,11 +9,11 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 # Build and deploy toolchain
 
 - **Date**: 2026-11-19
-- **Iteration**: 1
-- **Status**: Draft
+- **Iteration**: 2
+- **Status**: Accepted
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
-**TL;DR**: Recommended: build with Vite + Vue 3 single-file components (scoped CSS) and test with Vitest; a GitHub Actions workflow tests, builds and publishes to GitHub Pages. Pending Liyan's pick.
+**TL;DR**: Build with Vite + Vue 3 single-file components (scoped CSS), in TypeScript, tested with Vitest; a GitHub Actions workflow tests, builds and publishes to GitHub Pages.
 
 ---
 
@@ -48,7 +48,7 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 ## Questions
 
 ### QST-TOOLCHAIN: How do we build and ship the site?
-- Status: unanswered
+- Status: answered
 - Why asking: This shapes the repo skeleton, the verification gate, and how a change reaches players. Context: you asked for Vue with scoped CSS (`<style scoped>`), hosted free on GitHub Pages. Scoped CSS exists only inside Vue's single-file-component compiler, so any option without a build step can't meet that requirement.
 - Need: pick a letter (or override — any shape answers)
 
@@ -62,13 +62,30 @@ Options:
 **A — Vite + Actions deploy.** *Rationale*: C fails the scoped-CSS requirement on its own terms (Explicitation item 1). Between A and B, A runs the same gate as CLAUDE.md's Fifth Directive (`npm test` + `npm run build`) on every deploy. So the subpath `base` bug and the repeated-letter scoring bug are caught before players see them, not after. The official scaffold also wires Vitest in for free, which gives the tests directive a real home from day one. *Confidence*: 0.85, because the scoped-CSS constraint rules out C outright and A is GitHub's documented path for Vite on Pages. What I haven't verified: whether your account or the course limits Actions minutes or Pages on this repo. *If wrong*: if you want deploys to be deliberate snapshots you trigger yourself (say, per course milestone), or Actions isn't available to you, this flips to **B**.
 
 **ANS:** (by Liyan Luo)
-[Fill this in]   <!-- literal placeholder — parser-significant, do not paraphrase -->
+A — Vite + Actions deploy. (Accepted the recommendation. Liyan said in conversation, 2026-11-19: "按照你的来" — "go with your recommendations"; recorded by Claude Opus 5.5.)
 
 ---
 
 ## Decision
 
-Pending the answer to QST-TOOLCHAIN.
+### Chosen: A — Vite + Actions deploy
+
+**Rationale**: As in the Recommendation. `<style scoped>` requires the SFC compiler, so C is out. A puts the Fifth Directive's gate (`npm test` + `npm run build`) between every push and the live site. The Explicitation's assumptions (TypeScript, no UI framework, public repo) were accepted along with the pick.
+
+**Trade-offs accepted**: Node and a build step are required to work on the site. Deploys happen on every push to `main`, not as hand-picked snapshots.
+
+### Consequences
+- The repo gets a Vite + Vue 3 + TypeScript + Vitest skeleton with `base: '/wordle-with-records/'`.
+- `.github/workflows/deploy.yml` runs tests and build, then `actions/deploy-pages`.
+- One-time manual step for Liyan: Settings → Pages → Source: "GitHub Actions" (or the guide's `gh api` call).
+
+---
+
+## Action Items
+
+- [ ] Scaffold the app and the deploy workflow — Owner: Claude
+- [ ] Extend `just gate` with `npm test` and `npm run build` — Owner: Claude
+- [ ] Switch Pages to the "GitHub Actions" source — Owner: Liyan (or Claude via `gh api`, with Liyan's OK)
 
 ---
 
@@ -86,6 +103,12 @@ Pending the answer to QST-TOOLCHAIN.
 - Contributors: Claude (Opus 5.5)
 - Changes: options laid out, recommendation A
 - Outcome: Draft, awaiting QST-TOOLCHAIN
+
+### Iteration 2 (2026-11-19)
+- Trigger: Liyan's answer in conversation: "按照你的来" (go with your recommendations)
+- Contributors: Liyan Luo, Claude (Opus 5.5)
+- Changes: QST-TOOLCHAIN answered A; Decision and Action Items filled
+- Outcome: Draft → Accepted
 
 ---
 

@@ -9,11 +9,11 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 # Word list and guess rules
 
 - **Date**: 2026-11-19
-- **Iteration**: 1
-- **Status**: Draft
+- **Iteration**: 2
+- **Status**: Accepted
 - **Deciders**: Liyan Luo, Claude (Opus 5.5)
 
-**TL;DR**: Recommended for v1: answers are always 5-letter CS terms, and a guess must be a real English word or any CS answer word. Word length stays a code constant so variable length can come later. Pending Liyan's picks.
+**TL;DR**: Answers are always 5-letter CS terms, and a guess must be a real English word or any CS answer word. Word length stays one code constant so variable length can come later.
 
 ---
 
@@ -47,7 +47,7 @@ adr teaching map: the example is not the teaching — these are the up-links fro
 ## Questions
 
 ### QST-WORD-LENGTH: Are answers always five letters, or can the length vary?
-- Status: unanswered
+- Status: answered
 - Why asking: This sets the grid layout, the size of the answer pool, and which CS words are eligible at all. Context: your examples (ARRAY, STACK, QUEUE, CACHE, TOKEN) are all five letters, but many central CS words (HEAP, BINARY, POINTER) are not.
 - Need: pick a letter (or override — any shape answers)
 
@@ -61,12 +61,12 @@ Options:
 **A — Five, always.** *Rationale*: All five of your examples fit, and the fixed grid keeps v1's layout and scoring code simple. The scoring function is where real bugs live (repeated letters; see CLAUDE.md's Fifth Directive). I'll still write the length as one constant, not a sprinkled `5`, so B or C stays a contained change later rather than a rewrite. *Confidence*: 0.75. I'm fairly sure about the engineering; how much you care about words like POINTER is your call. *If wrong*: if we can't curate at least ~150 five-letter answers that feel fair and recognizable, the pool is too thin and this flips to **B**. Likewise if the words you most want in the game are mostly not five letters.
 
 **ANS:** (by Liyan Luo)
-[Fill this in]   <!-- literal placeholder — parser-significant, do not paraphrase -->
+A — Five, always. (Accepted the recommendation. Liyan said in conversation, 2026-11-19: "按照你的来" — "go with your recommendations"; recorded by Claude Opus 5.5.)
 
 ---
 
 ### QST-GUESS-RULES: What counts as a legal guess?
-- Status: unanswered
+- Status: answered
 - Why asking: This is the biggest single factor in how the game *feels*, and it decides whether we bundle a general English word list. Context: the answers are CS terms, and some of them (ASYNC, INODE, MUTEX) aren't in English dictionaries. Whatever rule we pick, every answer word must also be accepted as a guess.
 - Need: pick a letter (or override — any shape answers)
 
@@ -80,13 +80,29 @@ Options:
 **A — English + CS.** *Rationale*: A keeps the familiar strategy of opening with common letters while still rejecting nonsense. The union with the answer list fixes the jargon problem in Explicitation item 3. B makes the allowed-guess list nearly as small as the answer list, so the game turns into "recall the list" more than deduction. C gives up the word-ness that makes the format work. *Confidence*: 0.65. This one leans on taste: I'm confident A is the most *conventional* feel, much less that it's what *you* want. I also haven't picked a specific word list or checked its license yet. *If wrong*: if the point of the twist is to *practice CS vocabulary* (a study tool more than a puzzle), every guess should be a CS term and this flips to **B**.
 
 **ANS:** (by Liyan Luo)
-[Fill this in]   <!-- literal placeholder — parser-significant, do not paraphrase -->
+A — English + CS. (Accepted the recommendation. Liyan said in conversation, 2026-11-19: "按照你的来" — "go with your recommendations"; recorded by Claude Opus 5.5.)
 
 ---
 
 ## Decision
 
-Pending the answers to QST-WORD-LENGTH and QST-GUESS-RULES.
+### Chosen: QST-WORD-LENGTH A (five, always) + QST-GUESS-RULES A (English + CS)
+
+**Rationale**: As in the two Recommendations. A fixed 5×6 grid keeps v1's layout and scoring simple. Accepting any English word (plus every answer) keeps the usual probing strategy, rejects nonsense, and fixes the jargon problem (ASYNC, INODE…).
+
+**Trade-offs accepted**: Core CS words that aren't five letters (HEAP, BINARY, POINTER) are out for now. The site bundles a general English word list.
+
+### Consequences
+- `WORD_LENGTH` is a single constant; nothing else hard-codes 5.
+- Two data files: a hand-curated CS answer list, and an allowed-guess list = English 5-letter words ∪ answers.
+- The English list's source and license get recorded next to the file.
+
+---
+
+## Action Items
+
+- [ ] Curate the CS answer list (aim ≥150; the falsifier says fewer than ~150 good words flips QST-WORD-LENGTH to B) — Owner: Claude, reviewed by Liyan
+- [ ] Pick and bundle a permissively licensed English word list — Owner: Claude
 
 ---
 
@@ -105,6 +121,12 @@ Pending the answers to QST-WORD-LENGTH and QST-GUESS-RULES.
 - Contributors: Claude (Opus 5.5)
 - Changes: split "the word" into two lists (answers vs allowed guesses); two cards
 - Outcome: Draft, awaiting QST-WORD-LENGTH and QST-GUESS-RULES
+
+### Iteration 2 (2026-11-19)
+- Trigger: Liyan's answer in conversation: "按照你的来" (go with your recommendations)
+- Contributors: Liyan Luo, Claude (Opus 5.5)
+- Changes: both questions answered A; Decision and Action Items filled
+- Outcome: Draft → Accepted
 
 ---
 
