@@ -1,7 +1,6 @@
 # Crew Onboarding — read this first if you've been recruited
 
-Welcome to **⟦PROJECT-NAME⟧** — ⟦PROJECT-ONE-LINER⟧ <!-- one line: what this
-project is and who the human collaborator(s) are -->.
+Welcome to **wordle-with-records**: a word-guessing game whose answers are computer-science terms, built with Vue and hosted on GitHub Pages. The human is Liyan Luo.
 
 This document captures **80% of what every seat needs to know** so per-recruit
 briefs can be short deltas (name, color, mission). Fill the bracketed
@@ -60,8 +59,7 @@ the tmux hive.
 
 ## 1. What this project is
 
-⟦PROJECT-GOAL⟧ <!-- 1-3 sentences: the goal, the repo's role (product repo?
-coordination layer?), where implementation happens; same token as CLAUDE.md's -->
+A browser word-guessing game: the player guesses a hidden word and each letter gets colored feedback. The answers are computer-science terms (ARRAY, STACK, QUEUE, CACHE, TOKEN…). It is built with Vue single-file components using scoped CSS, and hosted free on GitHub Pages. This repo is both the product and its decision record: the implementation lives here, next to the ADRs that justify it.
 
 **Read first**, in order:
 1. `CLAUDE.md` — directives, project context, workflow
