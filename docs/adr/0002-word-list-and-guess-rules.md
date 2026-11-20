@@ -96,6 +96,7 @@ A — English + CS. (Accepted the recommendation. Liyan said in conversation, 20
 - `WORD_LENGTH` is a single constant; nothing else hard-codes 5.
 - Two data files: a hand-curated CS answer list, and an allowed-guess list = English 5-letter words ∪ answers.
 - The English list's source and license get recorded next to the file.
+- *(Implementation, 2026-11-19)* English list = SCOWL via `wordlist-english@1.2.1`, levels ≤60, 5,055 words (`src/data/english-5.txt`; notice in `src/data/SCOWL-COPYRIGHT.txt`; generator `scripts/ephemeral/2026-11-19-build-english-5.mjs`). Level 50 wrongly rejected real words (AMBIT, TALUS, YURTS); level 70 added mostly obscure slang. The answer list shipped with 158 words, just above the ~150 falsifier line.
 
 ---
 
